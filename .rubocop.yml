@@ -1,0 +1,278 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.0.3
+  TargetRailsVersion: 6.1.4
+  NewCops: enable
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
+    - 'bin/**/*'
+    - 'lib/tasks/**/*'
+    - 'spec/**/*'
+    - 'vendor/bundle/**/*'
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+    - sandbox
+    - preprod
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+Style/Documentation:
+  Enabled: false
+
+Style/RedundantArgument:
+  Enabled: true
+
+Style/InlineComment:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
+Layout/CaseIndentation:
+  Enabled: true
+  IndentOneStep: true
+  IndentationWidth: 2
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - prepend
+      - include
+      - extend
+    accepts_nested_attributes:
+      - accepts_nested_attributes
+    belongs_to_associations:
+      -belongs_to
+    has_one_associations:
+      -has_one
+    has_many_associations:
+      -has_many
+    has_and_belongs_to_many_associations:
+      -has_and_belongs_to_many
+    validations:
+      - validates
+    default_scope:
+      - default_scope
+    scopes:
+      -scope
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - accepts_nested_attributes
+    - belongs_to_associations
+    - has_one_associations
+    - has_many_associations
+    - has_and_belongs_to_many_associations
+    - validations
+    - default_scope
+    - scopes
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_methods
+    - private_methods
+
+Layout/IndentationWidth:
+  Enabled: true
+  Width: 2
+
+Layout/MultilineArrayBraceLayout:
+  Enabled: true
+  EnforcedStyle: 'symmetrical'
+
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: 'same_line'
+
+Layout/MultilineBlockLayout:
+  Enabled: true
+
+Naming/VariableNumber:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 26
+  Exclude:
+    - 'config/routes.rb'
+    - 'config/environments/**/*'
+    - 'spec/models/*.rb'
+
+Naming/FileName:
+  Exclude:
+    - 'config/initializers/**/*'
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Layout/MultilineHashBraceLayout:
+  Enabled: true
+  EnforcedStyle: 'symmetrical'
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+  EnforcedStyle: 'symmetrical'
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  Enabled: true
+  EnforcedStyle: 'symmetrical'
+
+Layout/MultilineOperationIndentation:
+  Enabled: true
+  EnforcedStyle: 'aligned'
+
+Layout/SpaceInLambdaLiteral:
+  Enabled: true
+  EnforcedStyle: 'require_space'
+
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+  IgnoredPatterns: ['\A#']
+  Include:
+    - 'app/controllers/**'
+    - 'app/helpers/**'
+    - 'app/models/**'
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Max: 8
+
+Lint/MissingSuper:
+  Enabled: false
+
+Style/SingleArgumentDig:
+  Enabled: false
+
+Style/RedundantRegexpCharacterClass:
+  Enabled: false
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Rails/Blank:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Rails/Output:
+  Enabled: true
+  Exclude:
+    - 'db/seeds.rb'
+
+Rails/TimeZone:
+  Enabled: true
+  Exclude:
+    - 'db/seeds.rb'
+
+Style/ExpandPathArguments:
+  Enabled: true
+  Exclude:
+    - 'config/**/**'
+    - 'test/**/**'
+
+Style/ImplicitRuntimeError:
+  Enabled: true
+  Exclude:
+    - 'lib/tasks/**'
+
+Style/Lambda:
+  Enabled: true
+  EnforcedStyle: 'literal'
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  Exclude:
+    - 'config.ru'
+    - 'db/migrate/**'
+    - 'db/seeds.rb'
+    - 'config/**/**'
+    - 'Gemfile'
+
+  IgnoredMethods: [
+    'require',
+    'raise',
+    'authorize',
+    'require_relative',
+    'render',
+    'rescue_from',
+    'throw',
+    'mail',
+    'yield',
+    'puts',
+  ]
+
+Style/PercentLiteralDelimiters:
+  Enabled: true
+  PreferredDelimiters:
+    default: '[]'
+    '%i': '()'
+    '%w': '()'
+    '%W': '()'
+    '%': '()'
+  Exclude:
+    - 'config/**/**'
+
+Style/RescueModifier:
+  Enabled: true
+  Exclude:
+    - 'config/**/**'
+    - 'lib/tasks/migration.rake'
+
+Style/Semicolon:
+  Enabled: true
+  Exclude:
+    - 'db/seeds.rb'
+
+inherit_mode:
+  merge:
+    - Exclude
