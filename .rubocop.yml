@@ -5,8 +5,8 @@ require:
   - rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 3.0.3
-  TargetRailsVersion: 6.1.4
+  TargetRubyVersion: 3.1.2
+  TargetRailsVersion: 7.0.3
   NewCops: enable
   Exclude:
     - 'db/schema.rb'
@@ -153,7 +153,6 @@ Layout/SpaceInLambdaLiteral:
 Layout/LineLength:
   Enabled: true
   Max: 120
-  IgnoredPatterns: ['\A#']
   Include:
     - 'app/controllers/**'
     - 'app/helpers/**'
