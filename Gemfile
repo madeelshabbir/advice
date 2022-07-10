@@ -79,3 +79,4 @@ group :test do
 end
 
 gem 'dotenv-rails'
+gem 'shopify_app', '~> 20.0'
