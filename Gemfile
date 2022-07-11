@@ -80,3 +80,4 @@ end
 
 gem 'dotenv-rails'
 gem 'shopify_app', '~> 20.0'
+gem 'sidekiq'
