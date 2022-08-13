@@ -9,7 +9,15 @@ class Shop < ApplicationRecord
   has_many :customers, dependent: :destroy
   has_many :products, dependent: :destroy
 
+  after_create_commit :create_shopify_assets
+
   def api_version
     ShopifyApp.configuration.api_version
   end
+
+  private
+
+    def create_shopify_assets
+      AssetsCreateJob.perform_later(domain)
+    end
 end
