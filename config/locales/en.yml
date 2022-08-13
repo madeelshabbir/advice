@@ -30,4 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  shopify:
+    assets:
+      wishlist_nav_link: Wishlist
+      wishlist_button: Add to wishlist
+      errors:
+        create: 'Failed to create asset: %{key} for theme: %{theme_id}'
