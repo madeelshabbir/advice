@@ -1,0 +1,10 @@
+{%- if customer != blank -%}
+  <li>
+    <a href='/customers/{{customer.id}}/wishlist'
+       class='header__menu-item header__menu-item list-menu__item link link--text focus-inset'>
+      <span>
+        <%= I18n.t('shopify.assets.wishlist_nav_link') %>
+      </span>
+    </a>
+  </li>
+{%- endif -%}
