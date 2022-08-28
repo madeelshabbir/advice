@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-WEBHOOK_TOPICS = %w(shop/update app/uninstalled products/create products/update products/delete).freeze
+WEBHOOK_TOPICS = %w(shop/update products/create products/update products/delete).freeze
 
 ShopifyApp.configure do |config|
   config.application_name = ENV.fetch('SHOPIFY_APP_NAME')
