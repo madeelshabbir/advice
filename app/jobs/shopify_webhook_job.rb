@@ -4,12 +4,23 @@ class ShopifyWebhookJob < ApplicationJob
   extend ShopifyAPI::Webhooks::Handler
 
   class << self
-    def handle(topic:, shop:, body:)
-      perform_later(topic:, domain: shop, params: body)
+    def handle(shop:, body:, **)
+      perform_later(domain: shop, params: body)
     end
   end
 
   protected
 
-    def perform(topic:, domain:, params:); end
+    attr_reader :domain, :params
+
+    def perform(domain:, params:)
+      @domain = domain
+      @params = params.with_indifferent_access
+
+      perform_action
+    end
+
+    def shop
+      @shop ||= Shop.find_by!(domain:)
+    end
 end
