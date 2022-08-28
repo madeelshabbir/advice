@@ -9,6 +9,7 @@ class Shop < ApplicationRecord
   has_many :customers, dependent: :destroy
   has_many :products, dependent: :destroy
 
+  after_update :setup, if: :saved_change_to_shopify_token?
   after_create_commit :setup
 
   def api_version
@@ -18,15 +19,15 @@ class Shop < ApplicationRecord
   private
 
     def setup
-      create_shopify_assets
-      create_existing_products
+      export_shopify_assets
+      import_shopify_products
     end
 
-    def create_existing_products
-      ExistingProductsCreateJob.perform_later(domain)
+    def export_shopify_assets
+      Assets::ExportJob.perform_later(domain)
     end
 
-    def create_shopify_assets
-      AssetsCreateJob.perform_later(domain)
+    def import_shopify_products
+      Products::ImportJob.perform_later(domain)
     end
 end
