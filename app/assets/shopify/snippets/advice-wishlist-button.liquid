@@ -1,15 +1,9 @@
 {%- if customer != blank -%}
-  <a href='/customers/{{customer.id}}/wishlist?product_id={{product.id}}'
-     class='product-form__submit button button--full-width'>
-    <span>
-      <%= I18n.t('shopify.assets.wishlist_button') %>
-    </span>
+  {% assign customer_id_tag = customer.id | prepend: 'customer_id:' | append: ':' %}
 
-    <div class='loading-overlay__spinner hidden'>
-      <svg aria-hidden='true' focusable='false' role='presentation'
-           class='spinner' viewBox='0 0 66 66' xmlns='http://www.w3.org/2000/svg'>
-        <circle class='path' fill='none' stroke-width='6' cx='33' cy='33' r='30'></circle>
-      </svg>
-    </div>
-  </a>
+  {%- if product.tags contains customer_id_tag -%}
+    {% include 'advice-wishlist-form' with method: 'delete', button_text: '<%= I18n.t('shopify.assets.wishlist_buttons.remove') %>' %}
+  {%- else  %}
+    {% include 'advice-wishlist-form' with method: 'put', button_text: '<%= I18n.t('shopify.assets.wishlist_buttons.add') %>', pass_customer_details: true %}
+  {%- endif -%}
 {%- endif -%}

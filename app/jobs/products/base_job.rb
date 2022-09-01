@@ -8,6 +8,7 @@ module Products
         {
           external_id: params[:id],
           title: params[:title],
+          handle: params[:handle],
           featured_image: params.dig(:images, 0, :src)
         }
       end

@@ -3,7 +3,7 @@
 module Builders
   module Graphql
     class Product
-      WHITELISTED_PARAMS = %i(external_id title featured_image).freeze
+      WHITELISTED_PARAMS = %i(external_id title handle featured_image).freeze
       EMPTY_RESPONSE = [].freeze
 
       def initialize(params)

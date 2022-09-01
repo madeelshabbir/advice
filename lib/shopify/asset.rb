@@ -2,9 +2,11 @@
 
 module Shopify
   class Asset < Base
+    include WishlistsHelper
+
     SOURCE_DIRECTORY = 'app/assets/shopify/'
 
-    def find_or_create!(theme_id:, key:)
+    def find_or_create_by!(theme_id:, key:)
       activate_session do
         find_by!(theme_id:, key:)
       rescue ShopifyAPI::Errors::HttpResponseError
