@@ -1,0 +1,23 @@
+<form class='form' action='<%= app_customer_wishlist_liquid_path %>' method='post'>
+  <input type='hidden' name='_method' value='{{method}}' />
+  <input type='hidden' name='product_id' value='{{product.id}}' />
+
+  {%- if pass_customer_details -%}
+    <input type='hidden' name='first_name' value='{{customer.first_name}}' />
+    <input type='hidden' name='last_name' value='{{customer.last_name}}' />
+    <input type='hidden' name='email' value='{{customer.email}}' />
+  {%- endif -%}
+
+  <div class='product-form__buttons'>
+    <button class='product-form__submit button button--full-width'>
+      <span>{{button_text}}</span>
+
+      <div class='loading-overlay__spinner hidden'>
+        <svg aria-hidden='true' focusable='false' role='presentation'
+             class='spinner' viewBox='0 0 66 66' xmlns='http://www.w3.org/2000/svg'>
+          <circle class='path' fill='none' stroke-width='6' cx='33' cy='33' r='30'></circle>
+        </svg>
+      </div>
+    </button>
+  </div>
+</form>

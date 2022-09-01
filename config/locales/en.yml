@@ -33,6 +33,8 @@ en:
   shopify:
     assets:
       wishlist_nav_link: Wishlist
-      wishlist_button: Add to wishlist
+      wishlist_buttons:
+        add: Add to wishlist
+        remove: Remove from wishlist
       errors:
         create: 'Failed to create asset: %{key} for theme: %{theme_id}'
