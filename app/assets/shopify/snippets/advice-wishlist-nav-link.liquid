@@ -1,6 +1,6 @@
 {%- if customer != blank -%}
   <li>
-    <a href='/customers/{{customer.id}}/wishlist'
+    <a href='<%= app_customer_wishlist_liquid_path %>'
        class='header__menu-item header__menu-item list-menu__item link link--text focus-inset'>
       <span>
         <%= I18n.t('shopify.assets.wishlist_nav_link') %>

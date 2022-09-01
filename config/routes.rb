@@ -5,7 +5,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   root to: 'home#index'
 
-  resources :products, only: :index
+  resources :customers, only: [] do
+    resource :wishlist, only: %i(update show destroy)
+  end
 
   mount ShopifyApp::Engine, at: '/'
   mount Sidekiq::Web, at: '/sidekiq'
