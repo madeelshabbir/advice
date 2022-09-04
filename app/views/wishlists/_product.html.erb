@@ -1,0 +1,7 @@
+<%= link_to product_path(product), class: 'full-unstyled-link mv-1' do %>
+  <div class='mv-1'>
+    <%= image_tag product.featured_image, class: 'card-image' %>
+  </div>
+
+  <%= product.title %>
+<% end %>

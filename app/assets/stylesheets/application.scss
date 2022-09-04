@@ -1,0 +1,38 @@
+.full-unstyled-link {
+  font-family: Oswald, sans-serif;
+  font-size: 2rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.mh-4 {
+  margin: auto 4rem;
+}
+
+.mv-1 {
+  margin: 1rem auto;
+}
+
+.mv-2 {
+  margin: 2rem auto;
+}
+
+.card-image {
+  object-fit: cover;
+  height: 29rem;
+  width: 24.5rem;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
