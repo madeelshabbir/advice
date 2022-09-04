@@ -1,0 +1,6 @@
+<div class='d-flex justify-content-around flex-wrap mh-4'>
+  <%= render partial: 'product', collection: @products %>
+</div>
+
+<%= render 'next_page' if @pagy.next.present? %>
+

@@ -11,5 +11,6 @@ module AdviceShopify
     config.load_defaults 7.0
     config.active_job.queue_adapter = :sidekiq
     config.eager_load_paths.push(Rails.root.join('lib'))
+    config.asset_host = ENV.fetch('SHOPIFY_APP_HOST')
   end
 end
