@@ -9,11 +9,17 @@ class WishlistsController < ApplicationController
   before_action :create_or_update_customer, only: :update
 
   def show
-    render :show, content_type: 'application/liquid'
+    @pagy, @products = pagy_countless(customer.wishlist, items: 50)
+
+    if params[:page]
+      render :scrollable_list, content_type: 'application/liquid'
+    else
+      render :show, content_type: 'application/liquid'
+    end
   end
 
   def update
-    customer.customer_products.create!(product_id:)
+    customer.customer_products.find_or_create_by!(product_id:)
     redirect_to(app_customer_wishlist_path(customer.external_id))
   end
 

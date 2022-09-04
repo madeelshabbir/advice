@@ -9,7 +9,7 @@ module WishlistsHelper
     "#{app_path}#{customer_wishlist_path(customer_id)}"
   end
 
-  def app_path
-    "/apps/#{ENV.fetch('SHOPIFY_APP_HANDLE')}"
+  def product_path(product)
+    "/products/#{product.handle}"
   end
 end
