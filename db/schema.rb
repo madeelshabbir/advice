@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_090953) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_183851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,8 +59,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_090953) do
     t.index ["domain"], name: "index_shops_on_domain", unique: true
   end
 
+  create_table "variants", force: :cascade do |t|
+    t.string "title", null: false
+    t.decimal "price"
+    t.decimal "compare_at_price"
+    t.bigint "external_id", null: false
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["external_id", "product_id"], name: "index_variants_on_external_id_and_product_id", unique: true
+    t.index ["product_id"], name: "index_variants_on_product_id"
+    t.index ["title", "product_id"], name: "index_variants_on_title_and_product_id", unique: true
+  end
+
   add_foreign_key "customer_products", "customers", primary_key: "external_id", on_delete: :cascade
   add_foreign_key "customer_products", "products", primary_key: "external_id", on_delete: :cascade
   add_foreign_key "customers", "shops", on_delete: :cascade
   add_foreign_key "products", "shops", on_delete: :cascade
+  add_foreign_key "variants", "products", primary_key: "external_id", on_delete: :cascade
 end

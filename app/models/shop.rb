@@ -9,6 +9,8 @@ class Shop < ApplicationRecord
   has_many :customers, dependent: :destroy
   has_many :products, dependent: :destroy
 
+  validates :domain, :token, presence: true, uniqueness: { case_sensitive: false }
+
   after_update :setup, if: :saved_change_to_shopify_token?
   after_create_commit :setup
 
