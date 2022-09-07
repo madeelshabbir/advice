@@ -16,10 +16,16 @@ module Queries
                 title
                 handle
                 images(first: 1) {
-                  edges {
-                    node {
-                      url
-                    }
+                  nodes {
+                    url
+                  }
+                }
+                variants(first: 100) {
+                  nodes {
+                    id
+                    price
+                    title
+                    compareAtPrice
                   }
                 }
               }

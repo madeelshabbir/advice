@@ -4,6 +4,8 @@ class ProductsCreateJob < Products::BaseJob
   private
 
     def perform_action
-      products.create!(payload)
+      products.find_or_create_by!(payload).tap do |product|
+        create_or_update_variants(product)
+      end
     end
 end

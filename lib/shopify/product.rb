@@ -8,7 +8,7 @@ module Shopify
       end
     end
 
-    def find_in_batches(batch_size: 200, start: nil, &block)
+    def find_in_batches(batch_size: 9, start: nil, &block)
       execute(query: Queries::Graphql::Product::BULK, batch_size:, start:, &block)
     end
 
