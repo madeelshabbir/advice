@@ -38,3 +38,10 @@ en:
         remove: Remove from wishlist
       errors:
         create: 'Failed to create asset: %{key} for theme: %{theme_id}'
+  mailers:
+    discount_notification:
+      subject: '%{shop_name} Discount Notification'
+      details: The item in your wishlist is on sale
+      btn_text: View Item
+      footer: 'Shop: %{domain}'
+
