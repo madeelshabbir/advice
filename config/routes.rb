@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   mount ShopifyApp::Engine, at: '/'
   mount Sidekiq::Web, at: '/sidekiq'
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

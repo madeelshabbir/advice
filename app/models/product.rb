@@ -5,10 +5,16 @@ class Product < ApplicationRecord
 
   has_many :variants, primary_key: :external_id, dependent: :destroy
   has_many :customer_products, primary_key: :external_id, dependent: :destroy
-  has_many :customers, through: :customer_products
+  has_many :wishers, through: :customer_products, source: :customer
 
   accepts_nested_attributes_for :variants
 
   validates :external_id, :title, :handle, presence: true
   validates :external_id, uniqueness: true
+
+  delegate :name, :domain, to: :shop, prefix: :shop
+
+  def wishers_emails
+    wishers.pluck(:email)
+  end
 end

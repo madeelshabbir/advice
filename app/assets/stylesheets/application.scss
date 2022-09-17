@@ -1,7 +1,4 @@
-.full-unstyled-link {
-  font-family: Oswald, sans-serif;
-  font-size: 2rem;
-}
+@import 'wishlist';
 
 .d-flex {
   display: flex;
@@ -15,16 +12,12 @@
   flex-wrap: wrap;
 }
 
-.mh-4 {
-  margin: auto 4rem;
-}
-
 .mv-1 {
   margin: 1rem auto;
 }
 
-.mv-2 {
-  margin: 2rem auto;
+.mh-4 {
+  margin: auto 4rem;
 }
 
 .card-image {

@@ -6,6 +6,7 @@ class ProductsUpdateJob < Products::BaseJob
     def perform_action
       products.find_or_initialize_by(external_id: params[:id]).tap do |product|
         product.update!(payload)
+        DiscountNotifier.new(product, params).notify
         create_or_update_variants(product)
       end
     end
