@@ -17,7 +17,7 @@ class ShopifyWebhookJob < ApplicationJob
       @domain = domain
       @params = params.with_indifferent_access
 
-      perform_action
+      ActiveRecord::Base.transaction { perform_action }
     end
 
     def shop

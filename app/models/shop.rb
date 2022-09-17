@@ -18,6 +18,10 @@ class Shop < ApplicationRecord
     ShopifyApp.configuration.api_version
   end
 
+  def name
+    domain.split('.').first.tr('-', ' ').capitalize
+  end
+
   private
 
     def setup

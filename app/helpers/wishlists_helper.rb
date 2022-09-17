@@ -12,4 +12,8 @@ module WishlistsHelper
   def product_path(product)
     "/products/#{product.handle}"
   end
+
+  def product_url(product)
+    "https://#{product.shop.domain}/products/#{product.handle}"
+  end
 end

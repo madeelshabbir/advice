@@ -1,0 +1,12 @@
+<p class='full-unstyled-link font-weight-bold m-half'><%= @product.title %></p>
+<div class='default-hr'></div>
+<p><%= I18n.t('mailers.discount_notification.details') %></p>
+<%= image_tag @product.featured_image, class: 'card-image' %>
+
+<%= link_to product_url(@product), class: 'text-decoration-none' do %>
+  <div class='m-auto view-btn default-color'>
+    <p><%= I18n.t('mailers.discount_notification.btn_text') %></p>
+  </div>
+<% end %>
+
+<p><%= I18n.t('mailers.discount_notification.footer', domain: @product.shop_domain) %></p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
+    <meta charset='utf-8' />
     <% application_name = ShopifyApp.configuration.application_name %>
     <title><%= application_name %></title>
     <%= stylesheet_link_tag 'application' %>
@@ -10,15 +10,15 @@
     <% elsif ShopifyApp.use_importmap? %>
       <%= javascript_importmap_tags %>
     <% else %>
-      <%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <% end %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div class="app-wrapper">
-      <div class="app-content">
-        <main role="main">
+    <div class='app-wrapper'>
+      <div class='app-content'>
+        <main role='main'>
           <%= yield %>
         </main>
       </div>
@@ -26,7 +26,7 @@
 
     <%= render 'layouts/flash_messages' %>
 
-    <script src="https://unpkg.com/@shopify/app-bridge@2"></script>
+    <script src='https://unpkg.com/@shopify/app-bridge@2'></script>
 
     <%= content_tag(:div, nil, id: 'shopify-app-init', data: {
       api_key: ShopifyApp.configuration.api_key,
@@ -36,7 +36,7 @@
     } ) %>
 
     <% if content_for?(:javascript) %>
-      <div id="ContentForJavascript" data-turbolinks-temporary>
+      <div id='ContentForJavascript' data-turbolinks-temporary>
         <%= yield :javascript %>
       </div>
     <% end %>
