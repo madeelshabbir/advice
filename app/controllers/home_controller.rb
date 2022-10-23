@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   include ShopifyApp::RequireKnownShop
   include ShopifyApp::ShopAccessScopesVerification
 
-  def index
+  def show
     @shop_origin = current_shopify_domain
     @host = params[:host]
   end

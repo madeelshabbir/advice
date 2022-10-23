@@ -7,7 +7,8 @@ module Assets
         file_paths.each do |key|
           Shopify::Asset.new(domain).find_or_create_by!(theme_id: theme.id, key:)
         rescue ShopifyAPI::Errors::HttpResponseError
-          Rails.logger.error(I18n.t('shopify.assets.errors.create', theme: theme.id, key:))
+          LogNotifier.error(I18n.t('shopify.assets.errors.create'), self.class.name,
+                            __method__, theme_id: theme.id, key:)
         end
       end
     end
