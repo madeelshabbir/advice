@@ -2,7 +2,6 @@
 
 module Shopify
   class Asset < Base
-    include ApplicationHelper
     include WishlistsHelper
 
     SOURCE_DIRECTORY = 'app/assets/shopify/'

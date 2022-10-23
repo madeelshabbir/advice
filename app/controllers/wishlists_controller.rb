@@ -11,7 +11,7 @@ class WishlistsController < ApplicationController
   def show
     @pagy, @products = pagy_countless(customer.wishlist, items: 50)
 
-    if params[:page]
+    if params[:page].present?
       render :scrollable_list, content_type: 'application/liquid'
     else
       render :show, content_type: 'application/liquid'

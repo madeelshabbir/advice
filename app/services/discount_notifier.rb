@@ -9,7 +9,7 @@ class DiscountNotifier
   def notify
     return unless notify_wishers?
 
-    WishlistMailer.discount_notification(product).deliver_later!
+    WishlistMailer.discount_notification(product.id).deliver_later!
   end
 
   private

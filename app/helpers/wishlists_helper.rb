@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module WishlistsHelper
+  include SharedHelper
+
   def app_customer_wishlist_liquid_path
     "#{app_path}/customers/{{customer.id}}/wishlist"
   end
