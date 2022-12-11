@@ -1,4 +1,7 @@
 en:
+  home:
+    welcome: Welcome to Advice!
+    details: Our app enables wishlist functionality for your customers
   shopify:
     assets:
       wishlist_nav_link: Wishlist
